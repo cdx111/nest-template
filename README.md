@@ -6,7 +6,7 @@ $ pnpm install
 
 ## Note
 
-the ```prisma generate``` command for you. In the future, you need to run this command after every change to your Prisma models to update your generated Prisma Client.
+the `prisma generate` command for you. In the future, you need to run this command after every change to your Prisma models to update your generated Prisma Client.
 
 ## Running the app
 
@@ -34,8 +34,12 @@ $ pnpm run test:e2e
 $ pnpm run test:cov
 ```
 
+## Database
+
+```bash
+$ brew services start mariadb
+```
+
 ## Support
 
 Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
-
-

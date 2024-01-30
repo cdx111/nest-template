@@ -1,6 +1,6 @@
 export type WechatConfig = {
   appid: string;
-  appScrect: string;
+  appSecret: string;
 };
 
 export type LoginResult = {

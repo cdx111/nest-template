@@ -15,7 +15,7 @@ export class WechatMiniprogramService {
       {
         params: {
           appid: this.wechatConfig.appid,
-          secret: this.wechatConfig.appScrect,
+          secret: this.wechatConfig.appSecret,
           js_code,
           grant_type: 'authorization_code',
         },

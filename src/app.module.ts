@@ -2,7 +2,7 @@ import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { AuthModule } from './auth/auth.module';
-import { ConfigModule } from '@nestjs/config';
+import { ConfigModule, ConfigService } from '@nestjs/config';
 import { PrismaModule } from './prisma/prisma.module';
 import { CacheModule } from '@nestjs/cache-manager';
 import { ScheduleModule } from '@nestjs/schedule';
@@ -23,9 +23,14 @@ import * as winston from 'winston';
     AuthModule,
     ConfigModule.forRoot({ isGlobal: true }),
     PrismaModule,
-    WechatModule.register({
-      appid: '',
-      appScrect: '',
+    WechatModule.registerAsync({
+      async useFactory(configService: ConfigService) {
+        return {
+          appid: configService.get('WECHAT_APPID'),
+          appSecret: configService.get('WECHAT_APPSECRET'),
+        };
+      },
+      inject: [ConfigService],
     }),
   ],
   controllers: [AppController],

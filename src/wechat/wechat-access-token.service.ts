@@ -20,7 +20,7 @@ export class WechatAccessTokenService {
         params: {
           grant_type: 'client_credential',
           appid: this.wechatConfig.appid,
-          secret: this.wechatConfig.appScrect,
+          secret: this.wechatConfig.appSecret,
         },
       },
     );
