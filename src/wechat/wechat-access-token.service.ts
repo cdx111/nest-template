@@ -1,12 +1,12 @@
-import { Inject, Injectable } from '@nestjs/common';
+import { Inject, Injectable, OnModuleInit } from '@nestjs/common';
 import { AccessToken, WechatConfig } from './types';
 import { AxiosService } from '@common/axios';
 import { WECHAT_CONFIG_TOKEN } from './constants';
-import { SchedulerRegistry, Timeout } from '@nestjs/schedule';
+import { SchedulerRegistry } from '@nestjs/schedule';
 import { CACHE_MANAGER, Cache } from '@nestjs/cache-manager';
 
 @Injectable()
-export class WechatAccessTokenService {
+export class WechatAccessTokenService implements OnModuleInit {
   constructor(
     private axios: AxiosService,
     @Inject(WECHAT_CONFIG_TOKEN) private wechatConfig: WechatConfig,
@@ -31,8 +31,8 @@ export class WechatAccessTokenService {
     }
     return data;
   }
-  @Timeout(0)
-  start() {
+
+  onModuleInit() {
     this.refreshToken();
   }
   async refreshToken() {
