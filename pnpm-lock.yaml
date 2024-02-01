@@ -13,10 +13,12 @@ specifiers:
   '@nestjs/schematics': ^10.0.0
   '@nestjs/swagger': ^7.2.0
   '@nestjs/testing': ^10.0.0
+  '@nestjs/throttler': ^5.1.1
   '@prisma/client': 5.8.1
   '@types/bcrypt': ^5.0.2
   '@types/express': ^4.17.17
   '@types/jest': ^29.5.2
+  '@types/lodash': ^4.14.202
   '@types/node': ^20.3.1
   '@types/passport-jwt': ^4.0.0
   '@types/passport-local': ^1.0.38
@@ -32,6 +34,7 @@ specifiers:
   eslint-config-prettier: ^9.0.0
   eslint-plugin-prettier: ^5.0.0
   jest: ^29.5.0
+  lodash: ^4.17.21
   nest-winston: ^1.9.4
   passport: ^0.7.0
   passport-jwt: ^4.0.1
@@ -60,12 +63,14 @@ dependencies:
   '@nestjs/platform-express': registry.npmmirror.com/@nestjs/platform-express/10.3.1_01f4804956bd4280e31b0302e6b840ca
   '@nestjs/schedule': registry.npmmirror.com/@nestjs/schedule/4.0.0_5c4994f367480b4e3a6c26e2f11e31e8
   '@nestjs/swagger': registry.npmmirror.com/@nestjs/swagger/7.2.0_8f4cc5219473624ff412162dfa3c3245
+  '@nestjs/throttler': registry.npmmirror.com/@nestjs/throttler/5.1.1_5c4994f367480b4e3a6c26e2f11e31e8
   '@prisma/client': registry.npmmirror.com/@prisma/client/5.8.1_prisma@5.8.1
   axios: registry.npmmirror.com/axios/1.6.7
   bcrypt: registry.npmmirror.com/bcrypt/5.1.1
   cache-manager: registry.npmmirror.com/cache-manager/5.4.0
   class-transformer: registry.npmmirror.com/class-transformer/0.5.1
   class-validator: registry.npmmirror.com/class-validator/0.14.1
+  lodash: registry.npmmirror.com/lodash/4.17.21
   nest-winston: registry.npmmirror.com/nest-winston/1.9.4_1dcb6810fdae744c280b57219b155a73
   passport: registry.npmmirror.com/passport/0.7.0
   passport-jwt: registry.npmmirror.com/passport-jwt/4.0.1
@@ -82,6 +87,7 @@ devDependencies:
   '@types/bcrypt': registry.npmmirror.com/@types/bcrypt/5.0.2
   '@types/express': registry.npmmirror.com/@types/express/4.17.21
   '@types/jest': registry.npmmirror.com/@types/jest/29.5.11
+  '@types/lodash': registry.npmmirror.com/@types/lodash/4.14.202
   '@types/node': registry.npmmirror.com/@types/node/20.11.5
   '@types/passport-jwt': registry.npmmirror.com/@types/passport-jwt/4.0.0
   '@types/passport-local': registry.npmmirror.com/@types/passport-local/1.0.38
@@ -1410,6 +1416,22 @@ packages:
       tslib: registry.npmmirror.com/tslib/2.6.2
     dev: true
 
+  registry.npmmirror.com/@nestjs/throttler/5.1.1_5c4994f367480b4e3a6c26e2f11e31e8:
+    resolution: {integrity: sha512-0fJAGroqpQLnQlERslx2fG264YCXU35nMfiFhykY6/chgc56/W0QPM6BEEf9Q/Uca9lXh5IyjE0fqFToksbP/A==, registry: http://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@nestjs/throttler/-/throttler-5.1.1.tgz}
+    id: registry.npmmirror.com/@nestjs/throttler/5.1.1
+    name: '@nestjs/throttler'
+    version: 5.1.1
+    peerDependencies:
+      '@nestjs/common': ^7.0.0 || ^8.0.0 || ^9.0.0 || ^10.0.0
+      '@nestjs/core': ^7.0.0 || ^8.0.0 || ^9.0.0 || ^10.0.0
+      reflect-metadata: ^0.1.13 || ^0.2.0
+    dependencies:
+      '@nestjs/common': registry.npmmirror.com/@nestjs/common/10.3.1_7c613202e4ccd67f9c4f13ae90edfa59
+      '@nestjs/core': registry.npmmirror.com/@nestjs/core/10.3.1_055cbb4b3a1464883897be6fc9ea9885
+      md5: registry.npmmirror.com/md5/2.3.0
+      reflect-metadata: registry.npmmirror.com/reflect-metadata/0.1.14
+    dev: false
+
   registry.npmmirror.com/@nodelib/fs.scandir/2.1.5:
     resolution: {integrity: sha512-vq24Bq3ym5HEQm2NKCr3yXDwjc7vTsEThRDnkp2DK9p1uqLR+DHurm/NOTo0KG7HYHU7eppKZj3MyqYuMBf62g==, registry: http://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@nodelib/fs.scandir/-/fs.scandir-2.1.5.tgz}
     name: '@nodelib/fs.scandir'
@@ -1738,6 +1760,12 @@ packages:
     version: 9.0.5
     dependencies:
       '@types/node': registry.npmmirror.com/@types/node/20.11.5
+
+  registry.npmmirror.com/@types/lodash/4.14.202:
+    resolution: {integrity: sha512-OvlIYQK9tNneDlS0VN54LLd5uiPCBOp7gS5Z0f1mjoJYBrtStzgmJBxONW3U6OZqdtNzZPmn9BS/7WI7BFFcFQ==, registry: http://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@types/lodash/-/lodash-4.14.202.tgz}
+    name: '@types/lodash'
+    version: 4.14.202
+    dev: true
 
   registry.npmmirror.com/@types/luxon/3.3.8:
     resolution: {integrity: sha512-jYvz8UMLDgy3a5SkGJne8H7VA7zPV2Lwohjx0V8V31+SqAjNmurWMkk9cQhfvlcnXWudBpK9xPM1n4rljOcHYQ==, registry: http://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@types/luxon/-/luxon-3.3.8.tgz}
@@ -2789,6 +2817,12 @@ packages:
     version: 0.7.0
     dev: true
 
+  registry.npmmirror.com/charenc/0.0.2:
+    resolution: {integrity: sha512-yrLQ/yVUFXkzg7EDQsPieE/53+0RlaWTs+wBrvW36cyilJ2SaDWfl4Yj7MtLTXleV9uEKefbAGUPv2/iWSooRA==, registry: http://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/charenc/-/charenc-0.0.2.tgz}
+    name: charenc
+    version: 0.0.2
+    dev: false
+
   registry.npmmirror.com/chokidar/3.5.3:
     resolution: {integrity: sha512-Dr3sfKRP6oTcjf2JmUmFJfeVMvXBdegxB0iVQ5eb2V10uFJUCAS8OByZdVAyVb8xXNz3GjjTgj9kLWsZTqE6kw==, registry: http://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/chokidar/-/chokidar-3.5.3.tgz}
     name: chokidar
@@ -3169,6 +3203,12 @@ packages:
       shebang-command: registry.npmmirror.com/shebang-command/2.0.0
       which: registry.npmmirror.com/which/2.0.2
     dev: true
+
+  registry.npmmirror.com/crypt/0.0.2:
+    resolution: {integrity: sha512-mCxBlsHFYh9C+HVpiEacem8FEBnMXgU9gy4zmNC+SXAZNB/1idgp/aulFJ4FgCi7GPEVbfyng092GqL2k2rmow==, registry: http://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/crypt/-/crypt-0.0.2.tgz}
+    name: crypt
+    version: 0.0.2
+    dev: false
 
   registry.npmmirror.com/debug/2.6.9:
     resolution: {integrity: sha512-bC7ElrdJaJnPbAP+1EotYvqZsb3ecl5wi6Bfi6BJTUcNowp6cvspg0jXznRTKDjm/E7AdgFBVeAPVMNcKGsHMA==, registry: http://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/debug/-/debug-2.6.9.tgz}
@@ -4403,6 +4443,12 @@ packages:
       binary-extensions: registry.npmmirror.com/binary-extensions/2.2.0
     dev: true
 
+  registry.npmmirror.com/is-buffer/1.1.6:
+    resolution: {integrity: sha512-NcdALwpXkTm5Zvvbk7owOUSvVvBKDgKP5/ewfXEznmQFfs4ZRmanOeKBTjRVjka3QFoN6XJ+9F3USqfHqTaU5w==, registry: http://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/is-buffer/-/is-buffer-1.1.6.tgz}
+    name: is-buffer
+    version: 1.1.6
+    dev: false
+
   registry.npmmirror.com/is-core-module/2.13.1:
     resolution: {integrity: sha512-hHrIjvZsftOsvKSn2TRYl63zvxsgE0K+0mYMoH6gD4omR5IWB2KynivBQczo3+wF1cCkjzvptnI9Q0sPU66ilw==, registry: http://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/is-core-module/-/is-core-module-2.13.1.tgz}
     name: is-core-module
@@ -5412,6 +5458,16 @@ packages:
     dependencies:
       tmpl: registry.npmmirror.com/tmpl/1.0.5
     dev: true
+
+  registry.npmmirror.com/md5/2.3.0:
+    resolution: {integrity: sha512-T1GITYmFaKuO91vxyoQMFETst+O71VUPEU3ze5GNzDm0OWdP8v1ziTaAEPUr/3kLsY3Sftgz242A1SetQiDL7g==, registry: http://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/md5/-/md5-2.3.0.tgz}
+    name: md5
+    version: 2.3.0
+    dependencies:
+      charenc: registry.npmmirror.com/charenc/0.0.2
+      crypt: registry.npmmirror.com/crypt/0.0.2
+      is-buffer: registry.npmmirror.com/is-buffer/1.1.6
+    dev: false
 
   registry.npmmirror.com/media-typer/0.3.0:
     resolution: {integrity: sha512-dq+qelQ9akHpcOl/gUVRTxVIOkAJ1wR3QAvb4RsVjS8oVoFjDGTc679wJYmUmknUF5HwMLOgb5O+a3KxfWapPQ==, registry: http://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/media-typer/-/media-typer-0.3.0.tgz}

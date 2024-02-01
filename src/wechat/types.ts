@@ -15,3 +15,8 @@ export type AccessToken = {
   access_token: string;
   expires_in: number;
 };
+
+export type msgSecCheckResult = {
+  errcode: number;
+  errmsg: string;
+};

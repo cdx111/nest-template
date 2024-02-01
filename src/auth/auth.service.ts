@@ -21,6 +21,7 @@ export class AuthService {
     return this.jwtService.sign({ sub: userId });
   }
   async login(payload: LoginDto): Promise<string> {
+    console.log('123');
     const user = await this.prismaService.user.findUnique({
       where: {
         username: payload.username,
@@ -33,7 +34,7 @@ export class AuthService {
 
     if (
       !(await this.passwordService.comparePassword(
-        payload.passward,
+        payload.password,
         user.password,
       ))
     ) {
@@ -43,7 +44,7 @@ export class AuthService {
     return this.signToken(user.id);
   }
   async signUp(payload: SignUpDto) {
-    const hash = await this.passwordService.hashPassword(payload.passward);
+    const hash = await this.passwordService.hashPassword(payload.password);
     try {
       const user = await this.prismaService.user.create({
         data: {

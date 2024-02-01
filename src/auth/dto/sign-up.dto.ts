@@ -14,5 +14,5 @@ export class SignUpDto {
     required: true,
     description: '密码',
   })
-  passward: string;
+  password: string;
 }

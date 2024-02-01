@@ -16,5 +16,5 @@ export class LoginDto {
   })
   @IsString({ message: '密码错误' })
   @Length(8, 20, { message: '密码错误' })
-  passward: string;
+  password: string;
 }

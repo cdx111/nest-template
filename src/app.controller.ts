@@ -1,5 +1,4 @@
 import { Controller, Get, Inject } from '@nestjs/common';
-
 import { WINSTON_MODULE_PROVIDER } from 'nest-winston';
 import { Logger } from 'winston';
 

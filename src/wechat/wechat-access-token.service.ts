@@ -24,7 +24,7 @@ export class WechatAccessTokenService {
         },
       },
     );
-    const data = JSON.parse(res.data);
+    const { data } = res;
     if (!data.access_token) {
       console.log(data);
       return null;

@@ -1,5 +1,5 @@
 import { Module } from '@nestjs/common';
-import { Axios, AxiosRequestConfig } from 'axios';
+import axios, { AxiosRequestConfig } from 'axios';
 import { AxiosService } from './axios.service';
 import { AXIOS_INSTANCE_TOKEN } from './constants';
 
@@ -7,7 +7,7 @@ import { AXIOS_INSTANCE_TOKEN } from './constants';
   providers: [
     {
       provide: AXIOS_INSTANCE_TOKEN,
-      useValue: new Axios(),
+      useValue: axios.create(),
     },
     AxiosService,
   ],
@@ -20,7 +20,7 @@ export class AxiosModule {
       providers: [
         {
           provide: AXIOS_INSTANCE_TOKEN,
-          useValue: new Axios(options),
+          useValue: axios.create(options),
         },
         AxiosService,
       ],

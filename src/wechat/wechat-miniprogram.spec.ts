@@ -12,6 +12,7 @@ describe('WechatMiniprogramService', () => {
   let service: WechatMiniprogramService;
   let cache: Cache;
   let accessToken: AccessToken;
+  let openid: string;
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
       imports: [
@@ -40,11 +41,21 @@ describe('WechatMiniprogramService', () => {
   });
 
   it('login reuslt should include an errcode of field ', async () => {
-    const res = await service.login('0d3jWm000fmYuR1B20200H3fnK2jWm0z');
+    const res = await service.login('0c3Cd62w3opwb23J9K1w3uMUpK2Cd62f');
     if (res) {
-      expect(typeof res.openid).toBe('string');
+      const truth = typeof res.openid === 'string';
+      expect(truth).toBe(true);
+      if (truth) {
+        openid = res.openid;
+      }
     } else {
       expect(res).toBe(null);
+    }
+  });
+  it('msgSecCheck errcode should be 0 ', async () => {
+    if (typeof openid === 'string') {
+      const { errcode } = await service.msgSecCheck('hello world', openid);
+      expect(errcode).toBe(0);
     }
   });
 });
