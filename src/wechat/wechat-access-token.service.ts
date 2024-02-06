@@ -35,13 +35,18 @@ export class WechatAccessTokenService implements OnModuleInit {
   onModuleInit() {
     this.refreshToken();
   }
+  onModuleDestroy() {
+    try {
+      this.schedulerRegistry.deleteTimeout('refreshToken');
+    } catch {}
+  }
   async refreshToken() {
     const data = await this.getAccessToken();
     if (data) {
       this.cacheManager.set('access_token', data.access_token);
       const id = setTimeout(
         this.refreshToken.bind(this),
-        (data.expires_in - 119 * 60) * 1000,
+        (data.expires_in - 5 * 60) * 1000,
       );
       try {
         this.schedulerRegistry.deleteTimeout('refreshToken');

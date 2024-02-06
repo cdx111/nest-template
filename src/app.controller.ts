@@ -8,6 +8,6 @@ export class AppController {
 
   @Get('/verify')
   verify() {
-    this.logger.info('log222ger', { controller: AppController.name });
+    this.logger.info('verify', { controller: AppController.name });
   }
 }
